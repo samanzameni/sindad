@@ -1,0 +1,46 @@
+<div fxLayout="column" fxLayoutAlign="space-evenly none" >
+  <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+    <div fxFlex="90"    fxFlex.md="90" fxFlex.sm="90" fxFlex.xs="90" class="Products-span">
+      میزبانی سایتتان را با ما تجربه کنید. کافیست نام دامنه ای که مایل به ثبت یا انتقال هستید وارد کنید یا فقط سرویس هاستینگ سفارش دهید...
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+    <button mat-icon-button color="primary" aria-label="Example icon-button with a heart  icon" (click)="selectedTab.next(selectedTab.getValue()+1)" style="color: #1cb48c;">
+      <mat-icon>keyboard_arrow_up</mat-icon>
+    </button>
+
+  </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" formGroup="domainform">
+      <ng-template *ngFor="let person of people; let i = index"  >
+        <div *ngIf="selectedTab===i">
+        </div>
+
+      </ng-template>
+
+      <div fxFlex="90"    fxFlex.md="90" fxFlex.sm="90" fxFlex.xs="90" class="mtContainer">
+        <div [ngClass]="{active: selectedTab.getValue()===0}" fxLayout="row" fxLayoutAlign="space-evenly center"  >
+          <div fxFlex="60"    fxFlex.md="60" fxFlex.sm="60" fxFlex.xs="60" style="direction: ltr;" >
+            <mat-form-field appearance="outline" class="label-css ">
+              <mat-label >نام دامنه</mat-label>
+              <input matInput placeholder="" formControlName="name">
+              <mat-icon matSuffix style="color: #1cb48c">search</mat-icon>
+              <mat-hint>yourname.ir برای مثال</mat-hint>
+            </mat-form-field>
+          </div>
+          <div fxFlex="30"    fxFlex.md="30" fxFlex.sm="30" fxFlex.xs="30" >
+            <button mat-raised-button color="primary" class="button-css">بررسی قابلیت ثبت</button>
+          </div>
+        </div>
+        <div [ngClass]="{active: selectedTab.getValue()===1}">Template of: 1</div>
+        <div [ngClass]="{active: selectedTab.getValue()===2}">Template of: 2</div>
+        <div [ngClass]="{active: selectedTab.getValue()===3}">Template of: 3</div>
+      </div>
+    </div>
+      <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+        <button mat-icon-button color="primary" aria-label="Example icon-button with a heart  icon" (click)="selectedTab.next(selectedTab.getValue()-1)" style="color: #1cb48c;">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+
+      </div>
+
+</div>
